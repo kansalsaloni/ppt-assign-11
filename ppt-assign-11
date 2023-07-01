@@ -1,0 +1,1099 @@
+Certainly! Here are the solutions to the questions you provided:
+
+1. Python program to reverse a string without using any built-in string reversal functions:
+```python
+def reverse_string(string):
+    reversed_string = ""
+    for i in range(len(string) - 1, -1, -1):
+        reversed_string += string[i]
+    return reversed_string
+
+# Example usage
+input_string = "Hello, World!"
+reversed_string = reverse_string(input_string)
+print(reversed_string)
+```
+
+2. Function to check if a given string is a palindrome:
+```python
+def is_palindrome(string):
+    reversed_string = reverse_string(string)
+    return string == reversed_string
+
+# Example usage
+input_string = "radar"
+is_palindrome = is_palindrome(input_string)
+print(is_palindrome)
+```
+
+3. Program to find the largest element in a given list:
+```python
+def find_largest_element(lst):
+    largest = lst[0]
+    for num in lst:
+        if num > largest:
+            largest = num
+    return largest
+
+# Example usage
+input_list = [10, 5, 20, 15, 25]
+largest_element = find_largest_element(input_list)
+print(largest_element)
+```
+
+4. Function to count the occurrence of each element in a list:
+```python
+def count_occurrences(lst):
+    occurrences = {}
+    for element in lst:
+        if element in occurrences:
+            occurrences[element] += 1
+        else:
+            occurrences[element] = 1
+    return occurrences
+
+# Example usage
+input_list = [1, 2, 1, 3, 2, 2, 4]
+occurrences = count_occurrences(input_list)
+print(occurrences)
+```
+
+5. Python program to find the second largest number in a list:
+```python
+def find_second_largest(lst):
+    largest = float('-inf')
+    second_largest = float('-inf')
+    for num in lst:
+        if num > largest:
+            second_largest = largest
+            largest = num
+        elif num > second_largest and num < largest:
+            second_largest = num
+    return second_largest
+
+# Example usage
+input_list = [10, 5, 20, 15, 25]
+second_largest_number = find_second_largest(input_list)
+print(second_largest_number)
+Certainly! Here are the solutions to the additional questions:
+
+6. Function to remove duplicate elements from a list:
+```python
+def remove_duplicates(lst):
+    return list(set(lst))
+
+# Example usage
+input_list = [1, 2, 2, 3, 4, 4, 5]
+unique_list = remove_duplicates(input_list)
+print(unique_list)
+```
+
+7. Program to calculate the factorial of a given number:
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Example usage
+num = 5
+factorial_result = factorial(num)
+print(factorial_result)
+```
+
+8. Function to check if a given number is prime:
+```python
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Example usage
+number = 17
+is_prime_number = is_prime(number)
+print(is_prime_number)
+```
+
+9. Python program to sort a list of integers in ascending order:
+```python
+def sort_list(lst):
+    return sorted(lst)
+
+# Example usage
+input_list = [5, 2, 8, 1, 9]
+sorted_list = sort_list(input_list)
+print(sorted_list)
+```
+
+10. Function to find the sum of all numbers in a list:
+```python
+def find_sum(lst):
+    return sum(lst)
+
+# Example usage
+input_list = [1, 2, 3, 4, 5]
+sum_of_numbers = find_sum(input_list)
+print(sum_of_numbers)
+```
+Certainly! Here are the solutions to the additional questions, implemented in C++:
+
+11. Program to find the common elements between two lists:
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::vector<int> findCommonElements(const std::vector<int>& list1, const std::vector<int>& list2) {
+    std::vector<int> commonElements;
+    for (int element : list1) {
+        if (std::find(list2.begin(), list2.end(), element) != list2.end()) {
+            commonElements.push_back(element);
+        }
+    }
+    return commonElements;
+}
+
+int main() {
+    std::vector<int> list1 = {1, 2, 3, 4, 5};
+    std::vector<int> list2 = {4, 5, 6, 7, 8};
+    std::vector<int> commonElements = findCommonElements(list1, list2);
+    for (int element : commonElements) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+```
+
+12. Function to check if a given string is an anagram of another string:
+```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+bool isAnagram(const std::string& str1, const std::string& str2) {
+    std::string sortedStr1 = str1;
+    std::string sortedStr2 = str2;
+    std::sort(sortedStr1.begin(), sortedStr1.end());
+    std::sort(sortedStr2.begin(), sortedStr2.end());
+    return sortedStr1 == sortedStr2;
+}
+
+int main() {
+    std::string str1 = "listen";
+    std::string str2 = "silent";
+    bool isAnagramResult = isAnagram(str1, str2);
+    std::cout << std::boolalpha << isAnagramResult << std::endl;
+    return 0;
+}
+```
+
+13. Program to generate all permutations of a given string:
+```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+void generatePermutations(std::string str, int left, int right) {
+    if (left == right) {
+        std::cout << str << std::endl;
+    } else {
+        for (int i = left; i <= right; i++) {
+            std::swap(str[left], str[i]);
+            generatePermutations(str, left + 1, right);
+            std::swap(str[left], str[i]);
+        }
+    }
+}
+
+int main() {
+    std::string str = "abc";
+    generatePermutations(str, 0, str.length() - 1);
+    return 0;
+}
+```
+
+14. Function to calculate the Fibonacci sequence up to a given number of terms:
+```cpp
+#include <iostream>
+
+void printFibonacciSequence(int terms) {
+    int num1 = 0;
+    int num2 = 1;
+    int nextTerm;
+    for (int i = 1; i <= terms; i++) {
+        std::cout << num1 << " ";
+        nextTerm = num1 + num2;
+        num1 = num2;
+        num2 = nextTerm;
+    }
+    std::cout << std::endl;
+}
+
+int main() {
+    int terms = 10;
+    printFibonacciSequence(terms);
+    return 0;
+}
+```
+
+15. Program to find the median of a list of numbers:
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+double findMedian(const std::vector<double>& numbers) {
+    std::vector<double> sortedNumbers = numbers
+
+;
+    std::sort(sortedNumbers.begin(), sortedNumbers.end());
+    int size = sortedNumbers.size();
+    if (size % 2 == 0) {
+        int midIndex = size / 2;
+        return (sortedNumbers[midIndex - 1] + sortedNumbers[midIndex]) / 2.0;
+    } else {
+        int midIndex = size / 2;
+        return sortedNumbers[midIndex];
+    }
+}
+
+int main() {
+    std::vector<double> numbers = {1.5, 2.7, 3.2, 4.9, 5.1};
+    double median = findMedian(numbers);
+    std::cout << median << std::endl;
+    return 0;
+}
+```
+
+16. Function to check if a given list is sorted in non-decreasing order:
+```cpp
+#include <iostream>
+#include <vector>
+
+bool isSorted(const std::vector<int>& numbers) {
+    int size = numbers.size();
+    for (int i = 0; i < size - 1; i++) {
+        if (numbers[i] > numbers[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 5, 4};
+    bool isSortedResult = isSorted(numbers);
+    std::cout << std::boolalpha << isSortedResult << std::endl;
+    return 0;
+}
+```
+
+17. Program to find the intersection of two lists:
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::vector<int> findIntersection(const std::vector<int>& list1, const std::vector<int>& list2) {
+    std::vector<int> intersection;
+    for (int element : list1) {
+        if (std::find(list2.begin(), list2.end(), element) != list2.end()) {
+            intersection.push_back(element);
+        }
+    }
+    return intersection;
+}
+
+int main() {
+    std::vector<int> list1 = {1, 2, 3, 4, 5};
+    std::vector<int> list2 = {4, 5, 6, 7, 8};
+    std::vector<int> intersection = findIntersection(list1, list2);
+    for (int element : intersection) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+```
+
+18. Function to find the maximum subarray sum in a given list:
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int findMaxSubarraySum(const std::vector<int>& numbers) {
+    int maxSum = numbers[0];
+    int currentSum = numbers[0];
+    int size = numbers.size();
+    for (int i = 1; i < size; i++) {
+        currentSum = std::max(numbers[i], currentSum + numbers[i]);
+        maxSum = std::max(maxSum, currentSum);
+    }
+    return maxSum;
+}
+
+int main() {
+    std::vector<int> numbers = {-2, -3, 4, -1, -2, 1, 5, -3};
+    int maxSubarraySum = findMaxSubarraySum(numbers);
+    std::cout << maxSubarraySum << std::endl;
+    return 0;
+}
+```
+
+19. Program to remove all vowels from a given string:
+```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+std::string removeVowels(const std::string& str) {
+    std::string result = str;
+   
+
+ result.erase(std::remove_if(result.begin(), result.end(), [](char c) {
+        return std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' ||
+               std::tolower(c) == 'o' || std::tolower(c) == 'u';
+    }), result.end());
+    return result;
+}
+
+int main() {
+    std::string str = "Hello, World!";
+    std::string strWithoutVowels = removeVowels(str);
+    std::cout << strWithoutVowels << std::endl;
+    return 0;
+}
+```
+
+20. Function to reverse the order of words in a given sentence:
+```cpp
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <algorithm>
+
+std::string reverseWords(const std::string& sentence) {
+    std::istringstream iss(sentence);
+    std::vector<std::string> words(std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>());
+    std::reverse(words.begin(), words.end());
+    std::ostringstream oss;
+    std::copy(words.begin(), words.end(), std::ostream_iterator<std::string>(oss, " "));
+    std::string reversedSentence = oss.str();
+    reversedSentence.pop_back(); // Remove trailing space
+    return reversedSentence;
+}
+
+int main() {
+    std::string sentence = "Hello, World!";
+    std::string reversedSentence = reverseWords(sentence);
+    std::cout << reversedSentence << std::endl;
+    return 0;
+}
+```
+21. Function to check if two strings are anagrams of each other:
+```cpp
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+bool areAnagrams(const std::string& str1, const std::string& str2) {
+    if (str1.length() != str2.length()) {
+        return false;
+    }
+    std::string sortedStr1 = str1;
+    std::string sortedStr2 = str2;
+    std::sort(sortedStr1.begin(), sortedStr1.end());
+    std::sort(sortedStr2.begin(), sortedStr2.end());
+    return sortedStr1 == sortedStr2;
+}
+
+int main() {
+    std::string str1 = "listen";
+    std::string str2 = "silent";
+    bool areAnagramsResult = areAnagrams(str1, str2);
+    std::cout << std::boolalpha << areAnagramsResult << std::endl;
+    return 0;
+}
+```
+
+22. Function to find the first non-repeating character in a string:
+```cpp
+#include <iostream>
+#include <string>
+#include <unordered_map>
+
+char findFirstNonRepeatingChar(const std::string& str) {
+    std::unordered_map<char, int> charCount;
+    for (char c : str) {
+        charCount[c]++;
+    }
+    for (char c : str) {
+        if (charCount[c] == 1) {
+            return c;
+        }
+    }
+    return '\0'; // Return null character if there are no non-repeating characters
+}
+
+int main() {
+    std::string str = "abracadabra";
+    char firstNonRepeatingChar = findFirstNonRepeatingChar(str);
+    std::cout << firstNonRepeatingChar << std::endl;
+    return 0;
+}
+```
+
+23. Program to find the prime factors of a given number:
+```cpp
+#include <iostream>
+#include <vector>
+
+std::vector<int> findPrimeFactors(int number) {
+    std::vector<int> primeFactors;
+    while (number % 2 == 0) {
+        primeFactors.push_back(2);
+        number /= 2;
+    }
+    for (int i = 3; i * i <= number; i += 2) {
+        while (number % i == 0) {
+            primeFactors.push_back(i);
+            number /= i;
+        }
+    }
+    if (number > 2) {
+        primeFactors.push_back(number);
+    }
+    return primeFactors;
+}
+
+int main() {
+    int number = 36;
+    std::vector<int> primeFactors = findPrimeFactors(number);
+    for (int factor : primeFactors) {
+        std::cout << factor << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+```
+
+24. Function to check if a given number is a power of two:
+```cpp
+#include <iostream>
+
+bool isPowerOfTwo(int number) {
+    return (number > 0) && ((number & (number - 1)) == 0);
+}
+
+int main() {
+    int number = 16;
+    bool isPowerOfTwoResult = isPowerOfTwo(number);
+    std::cout << std::boolalpha << isPowerOfTwoResult << std::endl;
+    return 0;
+}
+```
+
+25. Program to merge two sorted lists into a single sorted list:
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+std::vector<int> mergeSortedLists(const std::vector<int>& list1, const std::vector<int>& list2) {
+    std::vector<int> mergedList;
+    std::merge(list1.begin(), list1.end(),
+
+ list2.begin(), list2.end(), std::back_inserter(mergedList));
+    return mergedList;
+}
+
+int main() {
+    std::vector<int> list1 = {1, 3, 5, 7};
+    std::vector<int> list2 = {2, 4, 6, 8};
+    std::vector<int> mergedList = mergeSortedLists(list1, list2);
+    for (int element : mergedList) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+```
+
+26. Function to find the mode of a list of numbers:
+```cpp
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+
+std::vector<int> findMode(const std::vector<int>& numbers) {
+    std::unordered_map<int, int> countMap;
+    for (int number : numbers) {
+        countMap[number]++;
+    }
+    int maxCount = 0;
+    for (const auto& pair : countMap) {
+        maxCount = std::max(maxCount, pair.second);
+    }
+    std::vector<int> mode;
+    for (const auto& pair : countMap) {
+        if (pair.second == maxCount) {
+            mode.push_back(pair.first);
+        }
+    }
+    return mode;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 2, 5};
+    std::vector<int> mode = findMode(numbers);
+    for (int element : mode) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+```
+
+27. Program to find the greatest common divisor (GCD) of two numbers:
+```cpp
+#include <iostream>
+
+int findGCD(int number1, int number2) {
+    while (number2 != 0) {
+        int temp = number2;
+        number2 = number1 % number2;
+        number1 = temp;
+    }
+    return number1;
+}
+
+int main() {
+    int number1 = 36;
+    int number2 = 48;
+    int gcd = findGCD(number1, number2);
+    std::cout << gcd << std::endl;
+    return 0;
+}
+```
+
+28. Function to calculate the square root of a given number:
+```cpp
+#include <iostream>
+#include <cmath>
+
+double calculateSquareRoot(double number) {
+    return std::sqrt(number);
+}
+
+int main() {
+    double number = 16.0;
+    double squareRoot = calculateSquareRoot(number);
+    std::cout << squareRoot << std::endl;
+    return 0;
+}
+```
+
+29. Program to check if a given string is a valid palindrome ignoring non-alphanumeric characters:
+```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
+
+bool isPalindrome(const std::string& str) {
+    int left = 0;
+    int right = str.length() - 1;
+    while (left < right) {
+        while (left < right && !std::isalnum(str[left])) {
+            left++;
+        }
+        while (left < right && !std::isalnum(str[right])) {
+            right--;
+        }
+        if (std::tolower(str[left]) != std::tolower(str[right])) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+
+int main() {
+    std::string str = "A man, a plan, a canal: Panama!";
+    bool isPalindromeResult = isPalindrome(str);
+    std::cout << std::bool
+
+alpha << isPalindromeResult << std::endl;
+    return 0;
+}
+```
+
+30. Function to find the minimum element in a rotated sorted list:
+```cpp
+#include <iostream>
+#include <vector>
+
+int findMinimum(const std::vector<int>& numbers) {
+    int left = 0;
+    int right = numbers.size() - 1;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (numbers[mid] > numbers[right]) {
+            left = mid + 1;
+        } else if (numbers[mid] < numbers[right]) {
+            right = mid;
+        } else {
+            right--;
+        }
+    }
+    return numbers[left];
+}
+
+int main() {
+    std::vector<int> numbers = {4, 5, 6, 7, 0, 1, 2};
+    int minimum = findMinimum(numbers);
+    std::cout << minimum << std::endl;
+    return 0;
+}
+```
+31. Program to find the sum of all even numbers in a list:
+```cpp
+#include <iostream>
+#include <vector>
+
+int findSumOfEven(const std::vector<int>& numbers) {
+    int sum = 0;
+    for (int number : numbers) {
+        if (number % 2 == 0) {
+            sum += number;
+        }
+    }
+    return sum;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int sumOfEven = findSumOfEven(numbers);
+    std::cout << sumOfEven << std::endl;
+    return 0;
+}
+```
+
+32. Function to calculate the power of a number using recursion:
+```cpp
+#include <iostream>
+
+int calculatePower(int base, int exponent) {
+    if (exponent == 0) {
+        return 1;
+    } else {
+        return base * calculatePower(base, exponent - 1);
+    }
+}
+
+int main() {
+    int base = 2;
+    int exponent = 3;
+    int result = calculatePower(base, exponent);
+    std::cout << result << std::endl;
+    return 0;
+}
+```
+
+33. Program to remove duplicates from a list while preserving the order:
+```cpp
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+
+std::vector<int> removeDuplicates(const std::vector<int>& numbers) {
+    std::vector<int> result;
+    std::unordered_set<int> uniqueSet;
+    for (int number : numbers) {
+        if (uniqueSet.find(number) == uniqueSet.end()) {
+            result.push_back(number);
+            uniqueSet.insert(number);
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 5, 1, 3};
+    std::vector<int> result = removeDuplicates(numbers);
+    for (int number : result) {
+        std::cout << number << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+```
+
+34. Function to find the longest common prefix among a list of strings:
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+std::string findLongestCommonPrefix(const std::vector<std::string>& strings) {
+    if (strings.empty()) {
+        return "";
+    }
+    std::string commonPrefix = strings[0];
+    for (int i = 1; i < strings.size(); i++) {
+        std::string currentString = strings[i];
+        int j = 0;
+        while (j < commonPrefix.length() && j < currentString.length() && commonPrefix[j] == currentString[j]) {
+            j++;
+        }
+        commonPrefix = commonPrefix.substr(0, j);
+        if (commonPrefix.empty()) {
+            break;
+        }
+    }
+    return commonPrefix;
+}
+
+int main() {
+    std::vector<std::string> strings = {"flower", "flow", "flight"};
+    std::string longestCommonPrefix = findLongestCommonPrefix(strings);
+    std::cout << longestCommonPrefix << std::endl;
+    return 0;
+}
+```
+
+35. Program to check if a given number is a perfect square:
+```cpp
+#include <iostream>
+
+bool isPerfectSquare(int number) {
+    int root = sqrt(number);
+    return root * root == number;
+}
+
+int main() {
+    int number = 16;
+    bool isPerfect = isPerfectSquare(number);
+    std::cout << std::boolalpha
+
+ << isPerfect << std::endl;
+    return 0;
+}
+```
+
+36. Function to calculate the product of all elements in a list:
+```cpp
+#include <iostream>
+#include <vector>
+
+int calculateProduct(const std::vector<int>& numbers) {
+    int product = 1;
+    for (int number : numbers) {
+        product *= number;
+    }
+    return product;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    int product = calculateProduct(numbers);
+    std::cout << product << std::endl;
+    return 0;
+}
+```
+
+37. Program to reverse the order of words in a sentence while preserving the word order:
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+std::string reverseWords(const std::string& sentence) {
+    std::vector<std::string> words;
+    std::string currentWord;
+    for (char c : sentence) {
+        if (c == ' ') {
+            if (!currentWord.empty()) {
+                words.push_back(currentWord);
+                currentWord = "";
+            }
+        } else {
+            currentWord += c;
+        }
+    }
+    if (!currentWord.empty()) {
+        words.push_back(currentWord);
+    }
+    std::reverse(words.begin(), words.end());
+    std::string reversedSentence;
+    for (const std::string& word : words) {
+        reversedSentence += word + " ";
+    }
+    return reversedSentence;
+}
+
+int main() {
+    std::string sentence = "Hello world, how are you?";
+    std::string reversedSentence = reverseWords(sentence);
+    std::cout << reversedSentence << std::endl;
+    return 0;
+}
+```
+
+38. Function to find the missing number in a given list of consecutive numbers:
+```cpp
+#include <iostream>
+#include <vector>
+
+int findMissingNumber(const std::vector<int>& numbers) {
+    int n = numbers.size() + 1;
+    int totalSum = (n * (n + 1)) / 2;
+    int sum = 0;
+    for (int number : numbers) {
+        sum += number;
+    }
+    return totalSum - sum;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 5, 6};
+    int missingNumber = findMissingNumber(numbers);
+    std::cout << missingNumber << std::endl;
+    return 0;
+}
+```
+
+39. Program to find the sum of digits of a given number:
+```cpp
+#include <iostream>
+
+int calculateSumOfDigits(int number) {
+    int sum = 0;
+    while (number != 0) {
+        sum += number % 10;
+        number /= 10;
+    }
+    return sum;
+}
+
+int main() {
+    int number = 12345;
+    int sumOfDigits = calculateSumOfDigits(number);
+    std::cout << sumOfDigits << std::endl;
+    return 0;
+}
+```
+40. Function to check if a given string is a valid palindrome considering case sensitivity:
+```cpp
+#include <iostream>
+#include <string>
+
+bool isPalindrome(const std::string& str) {
+    int start = 0;
+    int end = str.length() - 1;
+    while (start < end) {
+        if (str[start] != str[end]) {
+            return false;
+        }
+        start++;
+        end--;
+    }
+    return true;
+}
+
+int main() {
+    std::string str = "Madam";
+    bool isPalindrome = isPalindrome(str);
+    std::cout << std::boolalpha << isPalindrome << std::endl;
+    return 0;
+}
+```
+
+41. Program to find the smallest missing positive integer in a list:
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int findSmallestMissingPositive(const std::vector<int>& numbers) {
+    int n = numbers.size();
+    std::vector<bool> present(n + 1, false);
+    for (int number : numbers) {
+        if (number > 0 && number <= n) {
+            present[number] = true;
+        }
+    }
+    for (int i = 1; i <= n; i++) {
+        if (!present[i]) {
+            return i;
+        }
+    }
+    return n + 1;
+}
+
+int main() {
+    std::vector<int> numbers = {-3, 1, 5, 4, 2};
+    int smallestMissingPositive = findSmallestMissingPositive(numbers);
+    std::cout << smallestMissingPositive << std::endl;
+    return 0;
+}
+```
+
+42. Function to find the longest palindrome substring in a given string:
+```cpp
+#include <iostream>
+#include <string>
+
+std::string findLongestPalindrome(const std::string& str) {
+    int maxLength = 1;
+    int start = 0;
+    int length = str.length();
+
+    int low, high;
+
+    for (int i = 1; i < length; ++i) {
+        low = i - 1;
+        high = i;
+
+        while (low >= 0 && high < length && str[low] == str[high]) {
+            if (high - low + 1 > maxLength) {
+                start = low;
+                maxLength = high - low + 1;
+            }
+            --low;
+            ++high;
+        }
+
+        low = i - 1;
+        high = i + 1;
+
+        while (low >= 0 && high < length && str[low] == str[high]) {
+            if (high - low + 1 > maxLength) {
+                start = low;
+                maxLength = high - low + 1;
+            }
+            --low;
+            ++high;
+        }
+    }
+
+    return str.substr(start, maxLength);
+}
+
+int main() {
+    std::string str = "babad";
+    std::string longestPalindrome = findLongestPalindrome(str);
+    std::cout << longestPalindrome << std::endl;
+    return 0;
+}
+```
+
+43. Program to find the number of occurrences of a given element in a list:
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int countOccurrences(const std::vector<int>& numbers, int target) {
+    return std::count(numbers.begin(), numbers.end(), target);
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 2, 4, 2, 5};
+    int target = 2;
+    int occurrences = countOccurrences(numbers, target);
+    std::cout << occurrences << std::endl;
+    return 0;
+}
+```
+
+44
+
+. Function to check if a given number is a perfect number:
+```cpp
+#include <iostream>
+
+bool isPerfectNumber(int number) {
+    int sum = 1;
+    for (int i = 2; i * i <= number; i++) {
+        if (number % i == 0) {
+            if (i * i != number) {
+                sum = sum + i + number / i;
+            } else {
+                sum = sum + i;
+            }
+        }
+    }
+    return sum == number && number != 1;
+}
+
+int main() {
+    int number = 28;
+    bool isPerfect = isPerfectNumber(number);
+    std::cout << std::boolalpha << isPerfect << std::endl;
+    return 0;
+}
+```
+
+45. Program to remove all duplicates from a string:
+```cpp
+#include <iostream>
+#include <string>
+#include <unordered_set>
+
+std::string removeDuplicates(const std::string& str) {
+    std::unordered_set<char> uniqueChars;
+    std::string result;
+    for (char c : str) {
+        if (uniqueChars.find(c) == uniqueChars.end()) {
+            uniqueChars.insert(c);
+            result += c;
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::string str = "Hello World";
+    std::string withoutDuplicates = removeDuplicates(str);
+    std::cout << withoutDuplicates << std::endl;
+    return 0;
+}
+```
+
+46. Function to find the first missing positive:
+```cpp
+#include <iostream>
+#include <vector>
+
+int findFirstMissingPositive(const std::vector<int>& nums) {
+    int n = nums.size();
+    for (int i = 0; i < n; ++i) {
+        while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
+            std::swap(nums[i], nums[nums[i] - 1]);
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        if (nums[i] != i + 1) {
+            return i + 1;
+        }
+    }
+    return n + 1;
+}
+
+int main() {
+    std::vector<int> nums = {3, 4, -1, 1};
+    int firstMissingPositive = findFirstMissingPositive(nums);
+    std::cout << firstMissingPositive << std::endl;
+    return 0;
+}
+```
